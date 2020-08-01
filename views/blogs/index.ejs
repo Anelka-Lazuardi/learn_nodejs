@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+            to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+    <h3 class="text-center">All Blogs</h3>
+    <% if (blogs.length > 0) { %>
+    <% blogs.forEach(blog => { %>
+    <div class="card mb-3">
+        <div class="card-header">
+            <%= blog.snippet  %>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><%= blog.title  %> </h5>
+            <p class="card-text"><%= blog.body  %> </p>
+            <a href="/blogs/<%= blog._id %> " class="btn btn-primary">Detail</a>
+        </div>
+    </div>
+    <% }) %>
+    <% }else { %>
+    <p>There are no blogs to display...</p>
+    <% } %>
+</div>
+<%- include('../partials/footer.ejs') %>
